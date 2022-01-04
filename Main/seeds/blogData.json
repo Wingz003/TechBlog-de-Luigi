@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Text-Title on the first slot.",
+        "text_content": "This is going to be part of the blog text content.",
+        "user_id": 1
+    },
+    {
+        "title": "Text-Title on the second slot.",
+        "text_content": "This is going to be part of the blog text content number 2.",
+        "user_id": 2
+    },
+    {
+        "title": "Text-Title on the third slot.",
+        "text_content": "This is going to be part of the blog text content number 3.",
+        "user_id": 3
+    }
+]
