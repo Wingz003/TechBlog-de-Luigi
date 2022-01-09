@@ -1,24 +1,23 @@
 const router = require('express').Router();
-const { Blog, Comment } = require('../../models');
+const { Blog } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 router.get('/', async (req, res) => {
-  // find all products
+  
   try {
     const blogData = await Blog.findAll();
     res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
   }
-  // be sure to include its associated Category and Tag data
+  
 });
 
 router.get('/:id', async (req, res) => {
-  // find a single product by its `id`
+  
   try {
-    const blogData = await Blog.findByPk(req.params.id, {
-      include: [{ model: Comment }],
-    });
+    const blogData = await Blog.findByPk(req.params.id);
 
     if (!blogData) {
       res.status(404).json({ message: 'No product found with that id!' });
@@ -29,10 +28,10 @@ router.get('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-  // be sure to include its associated Category and Tag data
+
 });
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.create({
       ...req.body,
@@ -45,7 +44,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.update(req.body, {
       where: {
