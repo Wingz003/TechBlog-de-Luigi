@@ -1,0 +1,12 @@
+
+{{#each blogs as |blog|}}
+<div class="card">
+  <h5 class="card-header">
+      {{blog.title}} {{blog.user.name}}
+  </h5>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">{{blog.text_content}}</p>
+  </div>
+</div>
+{{/each}}

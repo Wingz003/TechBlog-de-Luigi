@@ -12,9 +12,12 @@
     <header class="navbar">
       <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="dashboard">Dashboard</a></li>
-          <li><a href="login">Login</a></li>
-          <li><a href="#">Logout</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          {{#if logged_in}}
+          <li><a href="/" id="logout">Logout</a></li>
+          {{else}}
+          <li><a href="/login">Login</a></li>
+          {{/if}}
       </ul>
       <h1>The Tech Blog</h1>
     </header>
@@ -24,7 +27,7 @@
     {{#if logged_in}}
   <script src="/js/logout.js"></script>
    {{else}}
-  <script src="./js/login.js"></script> 
+  <script src="/js/login.js"></script> 
 {{/if}}
 
 

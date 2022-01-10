@@ -1,1 +1,49 @@
-<h1>Hello There</h1>
+
+
+
+{{#each blogs as |blog|}}
+<div class='card' id='{{blog.id}}'>
+  <h5 class='card-header'>
+    {{blog.title}}
+    {{blog.user.name}}
+  </h5>
+</div>
+{{/each}}
+
+{{#each blogs as |blog|}}
+<div class='card' hidden id='{{blog.id}}edit'>
+  <h5 class="card-header d-flex justify-content-between">Edit Post</h5> 
+    <form id="update-post-form" >
+        <div class="form-group w-75 mx-auto">
+            <label for="formGroupExampleInput">Title</label>
+            <input type="text" class="form-control" id="post-title" placeholder="{{blog.title}}">
+        </div>
+        <div class="form-group w-75 mx-auto">
+            <label for="formGroupExampleInput2">Content</label>
+            <input type="text" class="form-control" id="post-content" placeholder="{{blog.text_content}}">
+        </div>
+    <button class="btn w-75 mx-auto" type="submit">Update Post</button>
+    <button class="btn w-75 mx-auto" type="submit">Delete</button>
+    </form>
+</div>
+{{/each}}
+
+
+<div class="card mx-auto w-75" id="newPost" hidden>
+   <h5 class="card-header d-flex justify-content-between">Create New Post</h5> 
+    <form id="new-post-form" >
+        <div class="form-group w-75 mx-auto">
+            <label for="formGroupExampleInput">Title</label>
+            <input type="text" class="form-control" id="post-title">
+        </div>
+        <div class="form-group w-75 mx-auto">
+            <label for="formGroupExampleInput2">Content</label>
+            <input type="text" class="form-control" id="post-content">
+        </div>
+    <button class="btn w-75 mx-auto" type="submit">Create</button>
+    </form>
+
+</div>
+
+<button onclick="showNewPost()">+ New Post</button>
+<script src="/js/dashboard.js"></script>

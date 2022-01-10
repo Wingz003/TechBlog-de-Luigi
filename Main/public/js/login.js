@@ -1,4 +1,4 @@
-const loginFormHandler = async (event) => {
+const commentFormHandler = async (event) => {
   event.preventDefault();
 
   // Collect values from the login form
@@ -7,7 +7,7 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
     // Send a POST request to the API endpoint
-    const response = await fetch('/api/users/login', {
+    const response = await fetch('/api/user/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
+      document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }
@@ -30,24 +30,30 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#password-signup').value.trim();
 
   if (name && email && password) {
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/user', {
       method: 'POST',
       body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('oard');
     } else {
       alert(response.statusText);
     }
   }
 };
-
+try {
 document
   .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+  .addEventListener('submit', commentFormHandler);
+} catch {
 
+}
+try {
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
+} catch {
+
+}
