@@ -11,19 +11,19 @@
 {{/each}}
 
 {{#each blogs as |blog|}}
-<div class='card' hidden id='{{blog.id}}edit'>
+<div class='card update' hidden id='{{blog.id}}edit'>
   <h5 class="card-header d-flex justify-content-between">Edit Post</h5> 
-    <form id="update-post-form" >
+    <form class="update-post-form" id='{{blog.id}}'>
         <div class="form-group w-75 mx-auto">
             <label for="formGroupExampleInput">Title</label>
-            <input type="text" class="form-control" id="post-title" placeholder="{{blog.title}}">
+            <input type="text" class="form-control" id="post-title" value="{{blog.title}}">
         </div>
         <div class="form-group w-75 mx-auto">
             <label for="formGroupExampleInput2">Content</label>
-            <input type="text" class="form-control" id="post-content" placeholder="{{blog.text_content}}">
+            <input type="text" class="form-control" id="post-content" value="{{blog.text_content}}">
         </div>
-    <button class="btn w-75 mx-auto" type="submit">Update Post</button>
-    <button class="btn w-75 mx-auto" type="submit">Delete</button>
+    <input name="update" value="Update Post" class="btn w-75 mx-auto" type="submit"></input>
+    <input name="delete" value="Delete" class="btn w-75 mx-auto" type="submit" ></input>
     </form>
 </div>
 {{/each}}
@@ -46,4 +46,4 @@
 </div>
 
 <button onclick="showNewPost()">+ New Post</button>
-<script src="/js/dashboard.js"></script>
+<script src="../js/dashboard.js"></script>
