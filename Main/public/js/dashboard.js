@@ -46,6 +46,7 @@ document.querySelectorAll('.card').forEach((element) => {
     element.addEventListener('click', getBlog);
 });
 
+
 document.querySelectorAll('.update-post-form').forEach((element) => {
     element.addEventListener('submit', async (event) => {
 
