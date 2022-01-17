@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-  
+    
     const userData = await User.findByPk(req.session.user_id);
     const blogData = await Blog.findAll({
       include: [
@@ -48,7 +48,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
     res.render('dashboard', {
       blogs,
       user,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+
     });
   } catch (err) {
     res.status(500).json(err);
@@ -87,7 +88,7 @@ router.get('/signup', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-  
+
 });
 
 
@@ -101,7 +102,8 @@ router.get('/blog/:id', async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['comment'],
+          attributes: ['comment', 'user_id', 'date'],
+          include: [{ model: User, attributes: ['name'] }]
         },
       ],
     });

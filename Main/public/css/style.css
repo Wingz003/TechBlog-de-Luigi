@@ -73,6 +73,3 @@ label {
 span {
     margin: auto;
 }
-.commentBox > span {
-    color: var(--primary-400);
-}

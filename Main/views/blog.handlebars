@@ -3,7 +3,7 @@
     <p>{{blog.title}}</p> 
      <div> 
       <span>{{blog.user.name}}</span> 
-      <p>{{blog.date_created}}</p>
+      <p>{{format_date blog.date_created}}</p>
     </div> 
   </h5>
   <div class='card-body'>
@@ -19,8 +19,8 @@
       <h5 class='d-flex justify-content-between'>
         <p class='card-text'>{{comment.comment}}</p>
          <div class="commentBox"> 
-            <span>{{comment}}</span> 
-            <p>{{comment}}</p>
+            <span>{{comment.user.name}}</span> 
+            <p>{{format_date comment.date}}</p>
          </div> 
 
       </h5>  
