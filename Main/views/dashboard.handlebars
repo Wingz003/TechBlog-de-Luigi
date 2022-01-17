@@ -3,9 +3,12 @@
 
 {{#each blogs as |blog|}}
 <div class='card' id='{{blog.id}}'>
-  <h5 class='card-header'>
-    {{blog.title}}
-    {{blog.user.name}}
+  <h5 class='card-header d-flex justify-content-between'>
+    <p>{{blog.title}}</p> 
+     <div> 
+      <span>{{blog.user.name}}</span> 
+      <p>{{blog.date_created}}</p>
+    </div> 
   </h5>
 </div>
 {{/each}}
@@ -22,8 +25,8 @@
             <label for="formGroupExampleInput2">Content</label>
             <input type="text" class="form-control" id="post-content" value="{{blog.text_content}}">
         </div>
-    <input name="update" value="Update Post" class="btn w-75 mx-auto" type="submit"></input>
-    <input name="delete" value="Delete" class="btn w-75 mx-auto" type="submit" ></input>
+    <input name="update" value="Update Post" class="btn d-block w-75 mx-auto mb-2" type="submit"></input>
+    <input name="delete" value="Delete" class="btn d-block w-75 mx-auto" type="submit" ></input>
     </form>
 </div>
 {{/each}}
@@ -40,10 +43,26 @@
             <label for="formGroupExampleInput2">Content</label>
             <input type="text" class="form-control" id="post-content">
         </div>
-    <button class="btn w-75 mx-auto" type="submit">Create</button>
+    <button class="btn d-block w-75 mx-auto" type="submit">Create</button>
     </form>
 
 </div>
 
-<button onclick="showNewPost()">+ New Post</button>
+<button class="btn d-block mx-auto" onclick="showNewPost()">+ New Post</button>
 <script src="../js/dashboard.js"></script>
+
+
+{{!-- {{#each blogs as |blog|}}
+<div class="card mx-auto w-75" id="{{blog.id}}">
+  <h5 class="card-header d-flex justify-content-between">
+     <p>{{blog.title}}</p>  
+    <div> 
+      <span>{{blog.user.name}}</span> 
+      <p>{{blog.date_created}}</p>
+    </div>
+  </h5>
+  <div class="card-body">
+    <p class="card-text">{{blog.text_content}}</p>
+  </div>
+</div>
+{{/each}} --}}

@@ -12,8 +12,9 @@ const commentFormHandler = async (event) => {
         body: JSON.stringify({ comment: comment, blog_id: blogId }), // find blog id via handlebars or other source
         headers: { 'Content-Type': 'application/json' },
       });
-  
+      document.location.replace(`/blog/${blogId}`);
     }
+ 
   };
 
   try {

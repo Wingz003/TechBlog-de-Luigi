@@ -1,14 +1,12 @@
 
-    {{!-- {{#each blogs as |blog|}}
-    <p>{{blog.title}}</p>
-    <a href="/blogs/{{blog.id}}">Hello There</a>
-    {{/each}} --}}
-
 {{#each blogs as |blog|}}
 <div class="card mx-auto w-75" id="{{blog.id}}">
   <h5 class="card-header d-flex justify-content-between">
      <p>{{blog.title}}</p>  
-    <p>{{blog.user.name}}<span>{{blog.date_created}}</span></p> 
+    <div> 
+      <span>{{blog.user.name}}</span> 
+      <p>{{blog.date_created}}</p>
+    </div>
   </h5>
   <div class="card-body">
     <p class="card-text">{{blog.text_content}}</p>

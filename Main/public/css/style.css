@@ -34,10 +34,12 @@
     color: var(--primary-100); 
 
 }
+
 a {
     text-decoration: none;
     font-size: 20px;
     color: var(--primary-100);
+    margin-left: .5em;
 }
 p {
     font-size: 15px;
@@ -60,4 +62,17 @@ p {
 }
 label {
     margin-top: 1rem;
+}
+.newPost {
+    align-items: center;
+}
+.signNow {
+    color: var(--primary-400);
+    margin-bottom: .5em;
+}
+span {
+    margin: auto;
+}
+.commentBox > span {
+    color: var(--primary-400);
 }

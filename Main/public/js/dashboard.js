@@ -31,7 +31,7 @@ try {
 }
 
 const getBlog = async (event) => {
-    if(event.target.className !== 'card-header') {
+    if(event.target.className !== 'card-header d-flex justify-content-between') {
         return;
     }
     const blogId = event.currentTarget.id;
