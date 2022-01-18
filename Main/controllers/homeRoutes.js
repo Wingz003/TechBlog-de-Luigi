@@ -33,11 +33,15 @@ router.get('/dashboard', withAuth, async (req, res) => {
     
     const userData = await User.findByPk(req.session.user_id);
     const blogData = await Blog.findAll({
+      where: {
+        user_id: userData.id 
+      },
       include: [
         {
           model: User,
           attributes: ['name'],
         },
+        
       ],
     });
 
